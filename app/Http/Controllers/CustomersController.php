@@ -71,7 +71,7 @@ class CustomersController extends Controller
 
         if($customer)
         {
-            return view('customer.view', compact('teacher'));
+            return view('customer.view', compact('customer'));
         }
 
         return response()->json([

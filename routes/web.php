@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DrugsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\BrandsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,15 @@ Route::prefix('dashboard')->middleware('auth')->group( function() {
 
         //view
         Route::get('customers/view{id}','show')->name('customers.view');
+
+    });
+
+    Route::controller(BrandsController::class)->group(function(){
+
+        //brands route
+        Route::get('brands/create', 'create')->name('brands.create');
+        Route::get('brands/list', 'index')->name('brands.index');
+        Route::post('brands/store','store')->name('brands.store');
 
     });
 

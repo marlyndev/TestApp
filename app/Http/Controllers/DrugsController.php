@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Drugs;
 use App\Models\Categories;
+use App\Models\Brands;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,8 @@ class DrugsController extends Controller
     public function create()
     {
        $categories = Categories::latest()->get();
-        return view('drugs.create', compact('categories'));
+       $brands = Brands::latest()->get();
+        return view('drugs.create', compact('categories', 'brands'));
     }
 
     /**

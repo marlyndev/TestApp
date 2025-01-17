@@ -73,6 +73,20 @@
     </li>
 
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrands"
+            aria-expanded="true" aria-controls="collapseBrands">
+            <i class="bi bi-people" style="font-size: 18px;"></i>
+            <span>Brands</span>
+        </a>
+        <div id="collapseBrands" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('brands.create') }}">Add New</a>
+                <a class="collapse-item" href="{{ route('brands.index') }}">View All</a>
+        </div>
+    </li>
+
+
     <div class="sidebar-heading">
        GENERAL SETTINGS
      </div>

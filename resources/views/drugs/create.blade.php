@@ -31,7 +31,7 @@
 
                                     <div class="row">
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label for="">Select Category</label>
                                            
                                             <select class="form-control" name="drug_category" id="drug_category">
@@ -46,17 +46,36 @@
                                         </div>
 
 
-                                        <div class="col-md-4">
-                                            <label for="">Generic Name</label>
-                                            <input type="text" name="generic_name" class="form-control" placeholder="Generic Name">
+                                       
+
+                                            <div class="col-md-6">
+                                                <label for="">Select Brand</label>
+                                               
+                                                <select class="form-control" name="drug_brand" id="drug_brand">
+    
+                                                  @foreach($brands as $brand)
+                                                  <option value="{{ $brand->id }}">
+                                                    {{ strtoupper($brand->name) }}
+                                                  </option>
+                                                  @endforeach
+    
+                                                </select>
+                                            </div>
+
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label for="">Buying Price</label>
-                                            <input type="number" name="buying_price" class="form-control" placeholder="0.00">
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <label for="">Generic Name</label>
+                                                <input type="text" name="generic_name" class="form-control" placeholder="Generic Name">
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <label for="">Buying Price</label>
+                                                <input type="number" name="buying_price" class="form-control" placeholder="0.00">
+                                            </div>
                                         </div>
 
-                                    </div>
 
                                     <div class="row mt-4">
 
@@ -76,7 +95,7 @@
 
 
                                     
-                                    <button class="btn btn-primary mt-4">Submit</button>
+                                    <button class="btn btn-primary mt-6">Submit</button>
                                    </form>
                                     
                                 </div>
