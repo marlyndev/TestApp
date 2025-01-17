@@ -76,7 +76,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrands"
             aria-expanded="true" aria-controls="collapseBrands">
-            <i class="bi bi-people" style="font-size: 18px;"></i>
+            <i class="bi bi-box" style="font-size: 18px;"></i>
             <span>Brands</span>
         </a>
         <div id="collapseBrands" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -94,7 +94,7 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="#">
-            <i class="bi bi-gear"></i>
+            <i class="bi bi-gear"  style="font-size: 18px;"></i>
             <span>System Settings</span></a>
     </li>
 

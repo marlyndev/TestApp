@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <div class="panel-body">
 
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables">
                                     <thead>
                                         <tr>
                                             <th>Customer's Name</th>

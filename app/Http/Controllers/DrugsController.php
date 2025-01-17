@@ -68,7 +68,8 @@ class DrugsController extends Controller
                 'buying_price' => $request->buying_price,
                 'selling_price' => $request->selling_price,
                 'stock_quantity' => $request->stock_quantity,
-                'drug_category' => $request->drug_category
+                'drug_category' => $request->drug_category,
+                'drug_brand' => $request->drug_brand
             ]);
 
             DB::commit();

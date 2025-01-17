@@ -20,6 +20,8 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.min.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
@@ -95,6 +97,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Core plugin JavaScript-->
@@ -109,6 +112,14 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js')}}"></script>
+
+    <script src="https://cdn.datatables.net/2.2.1/js/dataTables.min.js"></script>
+
+
+
+    <script>
+        $('#dataTables').DataTable( {});
+    </script>
 
 
     @yield('scripts')

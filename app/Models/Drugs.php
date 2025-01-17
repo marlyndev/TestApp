@@ -14,6 +14,7 @@ class Drugs extends Model
         'buying_price',
         'selling_price',
         'stock_quantity',
-        'drug_category'
+        'drug_category',
+        'drug_brand'
     ];
 }
