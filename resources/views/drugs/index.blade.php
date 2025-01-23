@@ -79,8 +79,20 @@
                                         </td>
 
                                         <td>
+                                            <a href="{{ route('drugs.view', ['id' => $drug->id]) }}">
                                             <button class="btn btn-primary btn-sm">View</button>
-                                        </td>
+                                            </a>
+
+                                            <a href="{{ route('drugs.edit', ['id' => $drug->id]) }}">
+                                            <button class="btn btn-primary btn-sm">Edit</button>
+                                            </a>
+
+                                            <a href="{{ route('drugs.delete', ['id' => $drug->id]) }}"> 
+                                            <button class="btn btn-primary btn-sm">Delete</button>
+                                             </a> 
+
+            
+                                            </td>
                                        </tr>
                                            
                                        @endforeach

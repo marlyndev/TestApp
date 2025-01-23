@@ -26,6 +26,7 @@
                                             <th>Email</th>
                                             <th>Phone Number</th>
                                             <th>Address</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
     
@@ -50,6 +51,17 @@
                                             <td>
                                                 {{ $data->address }}
                                             </td>
+
+                                            <th>
+                                                <a href="{{ route('customers.view', ['id' => $data->id]) }}">
+                                                    <button class="btn btn-primary btn-sm">View</button> 
+
+                                                <a href="{{ route('customers.edit', ['id' => $data->id]) }}">
+                                                    <button class="btn btn-primary btn-sm">Edit</button> 
+
+                                                <a href="{{ route('customers.delete', ['id' => $data->id]) }}">
+                                                     <button class="btn btn-primary btn-sm">Delete</button> 
+                                            </th>
                                         </tr>
 
                                         @endforeach

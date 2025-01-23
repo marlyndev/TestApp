@@ -24,6 +24,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Description</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
     
@@ -40,6 +41,18 @@
     
                                             <td>
                                                {{ $data->description }}
+                                            </td>
+
+                                            <td> 
+                                                <a href="{{ route('categories.view', ['id' => $data->id]) }}">
+                                                <button class="btn btn-primary btn-sm">View</button> 
+
+                                                <a href="{{ route('categories.edit', ['id' => $data->id]) }}">
+                                                <button class="btn btn-primary btn-sm">Edit</button> 
+
+                                                <a href="{{ route('categories.delete', ['id' => $data->id]) }}">
+                                                <button class="btn btn-primary btn-sm">Delete</button> 
+
                                             </td>
 
                                         </tr>

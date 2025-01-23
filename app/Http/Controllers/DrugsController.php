@@ -21,6 +21,22 @@ class DrugsController extends Controller
         return view('drugs.index', compact('drugs'));
     }
 
+
+    public function drugList(){
+
+        $drugs = Drugs::latest()->get();
+
+        return response()->json([
+
+            'success' => true,
+            'drugs' => $drugs
+
+
+        ], 200);
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -93,32 +109,76 @@ class DrugsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Drugs $drugs)
+    public function show($id)
     {
         //
+        $drugs = Drugs::findOrFail($id);
+
+        if($drugs)
+        {
+            return view('drugs.view', compact('drugs'));
+        }
+
+        return response()->json([
+            'message' => 'Drug Not found'
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Drugs $drugs)
+    public function edit($id)
     {
         //
+        $drugs = Drugs::findOrFail($id);
+
+        if($drugs){
+            return view('drugs.edit', compact('drugs'));
+        }
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Drugs $drugs)
+    public function update(Request $request)
     {
         //
+        $request->validate([
+           'generic_name' => 'required|string|min:3',
+           'buying_price' => 'required|numeric|min:2',
+           'selling_price' => 'required|numeric|min:2',
+           'stock_quantity' => 'required|numeric|min:1',
+           'drug_category' => 'required',
+           'drug_brand' => 'required'
+           
+
+        ]);
+
+        $drugs = Drugs::findOrFail($request->id);
+
+        if($drugs){
+
+            $drugs->update($request->all());
+
+            return  redirect()->route('drugs.index');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Drugs $drugs)
+    public function destroy($id)
     {
         //
+        
+        $drugs = Drugs::findOrFail($id);
+ 
+         if($drugs){
+ 
+             $drugs->delete();
+ 
+             return redirect()->back();
+         }
     }
 }

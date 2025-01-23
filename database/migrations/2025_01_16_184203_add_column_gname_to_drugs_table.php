@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::table('drugs', function (Blueprint $table) {
             //
             $table->string('generic_name');
+            $table->string('category');
+            $table->string('brand');
             $table->integer('buying_price');
             $table->integer('selling_price');
             $table->integer('stock_quantity');

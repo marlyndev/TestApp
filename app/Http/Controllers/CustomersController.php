@@ -24,6 +24,56 @@ class CustomersController extends Controller
 
     }
 
+    public function customerApi(Request $request){
+
+        //data validation
+        $request->validate([
+            'name' => 'required|string|min:3',
+            'email' => 'required|string',
+            'phone' => 'required|string|min:10',
+            'address' => 'required|string',
+        ]);
+
+        DB::beginTransaction();
+
+        try
+        {
+            //insert data
+            $customers= new customers();
+            $customers->name= $request->name;
+            $customers->email= $request->email;
+            $customers->phone= $request->phone;
+            $customers->address= $request->address;
+
+            $customers->save();
+
+            DB::commit();
+
+            Log::info('customers Data' .$customers);
+
+            return response()->json([
+
+            'success' => true,
+            'customers' => $customers
+            ], 200);
+        }
+
+
+        catch(expection $e){
+
+            DB::rollBack();
+
+            Log::info($e->getMessage());
+            return response()->json([
+
+                'success' => false,
+                'message' => $e->getMessage()
+    
+               ],419);
+
+        }
+    }
+
     public function store(Request $request){
 
         //data validation
@@ -65,13 +115,13 @@ class CustomersController extends Controller
         }
     }
 
-    public function show(){
+    public function show($id){
 
-        $customer = customer::findOrFail($id);
+        $customers = Customers::findOrFail($id);
 
-        if($customer)
+        if($customers)
         {
-            return view('customer.view', compact('customer'));
+            return view('customers.view', compact('customers'));
         }
 
         return response()->json([
@@ -79,4 +129,46 @@ class CustomersController extends Controller
         ]);
         
     }
+
+    public function edit($id){
+
+        $customers = Customers::findOrFail($id);
+
+        if($customers){
+            
+            return view('customers.edit', compact('customers'));
+        }
+    }
+
+    public function update(Request $request){
+
+        $request->validate([
+            'name' => 'required|string|min:3',
+            'email' => 'required|string',
+            'phone' => 'required|string|min:10',
+            'address' => 'required'
+        ]);
+
+        $customers = Customers::findOrFail($request->id);
+
+        if($customers){
+
+        $customers->update($request->all());
+
+        return redirect()->route('customers.index');
+    }
+}
+
+     public function destroy($id){
+
+        $customers = Customers::findOrFail($id);
+
+        if($student){
+
+            $student->delete();
+
+            return redirect()->back();
+        }
+
+     }
 }

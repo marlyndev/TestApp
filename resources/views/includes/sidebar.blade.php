@@ -17,6 +17,12 @@
             <span>Dashboard</span></a>
     </li>
 
+    <li class="nav-item">
+
+        <button class="btn btn-danger btn-block">POS System</button>
+
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 

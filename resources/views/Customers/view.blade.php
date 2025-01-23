@@ -10,13 +10,13 @@
 
 <h2>Customers Information</h2>
 
-<p>Name: {{  strtoupper($customer->name) }} </p>
+<p>Name: {{  strtoupper($customers->name) }} </p>
 
-<p>Email: {{ $customer->email  }} </p>
+<p>Email: {{ $customers->email  }} </p>
 
-<p>Phone_No: {{ $customer->phone  }} </p>
+<p>Phone_No: {{ $customers->phone  }} </p>
 
-<p>Address: {{ $customer->address  }} </p>
+<p>Address: {{ $customers->address  }} </p>
     
 </body>
 </html>
